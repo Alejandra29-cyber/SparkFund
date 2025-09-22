@@ -133,11 +133,3 @@ Our proposed solution is to implement the *Open Payments API* to create a websit
 ### - *Scalability:* Each layer scales independently  
 ### - *Maintainability:* Modular code and separation of concerns  
 ### - *Ecosystem:* Extensive documentation and community support
-
-### Top contributors:
-
-<a href="https://github.com/othneildrew/Best-README-Template/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=othneildrew/Best-README-Template" alt="contrib.rocks image" />
-</a>
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
