@@ -1,27 +1,26 @@
 # SparkFund
 The objective of this project is to develop a customizable donation platform that enables micropayments while eliminating transaction fees. This will empower individuals to contribute according to their capacity
 
-## What is the problem?
+### WHAT IS THE PROBLEM?
 
-### People affected by situations beyond their control are left vulnerable and rely on external aid to cover medical supplies.
+People affected by situations beyond their control are left vulnerable and rely on external aid to cover medical supplies.
+Cash donations carry handling risks, and online fundraisers incur costs due to payment gateway fees.
 
-### Cash donations carry handling risks, and online fundraisers incur costs due to payment gateway fees.
+### WHAT IS THE SOLUTION
 
-## What is the solution?
+Our proposed solution is to implement the *Open Payments API* to create a website dedicated to donations, customizable according to each campaign, which **reduces or eliminates fees**, and also facilitates *micropayments* so empathetic individuals can donate amounts according to their means.
 
-### Our proposed solution is to implement the Open Payments API to create a website dedicated to donations, customizable according to each campaign, which reduces or eliminates fees, and also facilitates micropayments so empathetic individuals can donate amounts according to their means.
+### WHAT ARE THE BENEFITS?
 
-## What are the benefits?
+- Facilitates small donations (micropayments)
+- Reduces or eliminates transaction fees  
+- Removes the need to use payment gateways  
+- Reduces the risk of bank data theft  
+- Simplifies the user experience by only requiring wallet input, amount entry, and transaction confirmation  
+- Accessible for different economic capacities  
+- Eliminates issues related to currency exchange  
 
-### - Facilitates small donations (micropayments)  
-### - Reduces or eliminates transaction fees  
-### - Removes the need to use payment gateways  
-### - Reduces the risk of bank data theft  
-### - Simplifies the user experience by only requiring wallet input, amount entry, and transaction confirmation  
-### - Accessible for different economic capacities  
-### - Eliminates issues related to currency exchange  
-
-## Value Proposition
+### Value Proposition
 
 - *For the Donor:* Donate without feeling the expense, and be an active part of the solution. Your money has a visible impact, and you choose where it goes.  
 - *For NGOs:* Receive a steady and predictable flow of income from a new generation of donors who feel more engaged than ever.  
@@ -29,7 +28,7 @@ The objective of this project is to develop a customizable donation platform tha
 
 ## HIGH-LEVEL TECHNICAL SOLUTION DESCRIPTION
 
-### The solution consists of developing a web donation platform customizable by campaign, integrated with the Open Payments API, to allow easy donations, micropayments, and fee reduction. The architecture is proposed as a client-server model with scalable and secure components.
+**The solution consists of developing a web donation platform customizable by campaign, integrated with the Open Payments API, to allow easy donations, micropayments, and fee reduction. The architecture is proposed as a *client-server model* with scalable and secure components.**
 
 ### 1. FRONTEND  
 *Technology:* React.js  
@@ -52,7 +51,7 @@ The objective of this project is to develop a customizable donation platform tha
 *Functionality:*  
 - Local web development infrastructure
 
-## Feasibility, Impact, and Sustainability Analysis
+## FEASIBILITY, IMPACT & SUSTAINTABILITY ANALYSYS
 
 ### Feasibility
 
