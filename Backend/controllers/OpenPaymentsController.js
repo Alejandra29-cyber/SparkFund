@@ -208,7 +208,6 @@ export const continuePayment = async (req, res) => {
     res.json({
       success: true,
       message: "Pago realizado y guardado con éxito",
-      outgoingPayment,
     });
     
 

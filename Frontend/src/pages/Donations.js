@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { procesarValor } from '../utils/processValue';
+import "../styles/donation.css";
 
 export default function Donation() {
 
@@ -21,13 +22,12 @@ export default function Donation() {
 
 
     return (
-        <div>
-            <div>
-                <h1>Pagina de donativos</h1>
-                <p>M</p>
-            </div>
-            <div>
-                <form className="">
+        <div className="background">
+            <div className="transparent-container2">
+                <h1 className="title">Donative Page</h1>
+                
+            
+                <form className="simple-form">
                     <p>What is your wallet address?</p>
                     <input type="text" className="walletAddressSender" value={walletAddressSender}
                     onChange={(e) => setWalletAddressSender(e.target.value)}
