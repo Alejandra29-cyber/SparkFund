@@ -138,23 +138,23 @@ Our proposed solution is to implement the *Open Payments API* to create a websit
 
 ## ESSENTIAL FEATURES
 
-## 
+## STACK
 SparkFun/
-├── backend/
-│   ├── config/
-│   │   └── db.js
+├── backend/            #Servidor Backend
+│   ├── config/      
 │   ├── controllers/
-│   │   └──OpenPaymentsController.js 
 │   ├── routes/
-│   │   ├──donations.js
-│   │   └──payments.js
 │   ├── .env
 │   ├── private.key
 │   └── server.js
-├── frontend/
+├── frontend/           #Servidor FrontEnd
+│   ├──
 │   └── src/
 │       ├── components/
 │       ├── pages/
+│       ├── services/
+│       ├── styles/
+│       ├── utils/
 │       ├── App.js
 │       └── index.js
 ├── .env
