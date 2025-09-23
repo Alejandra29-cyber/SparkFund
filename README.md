@@ -1,4 +1,5 @@
 # SparkFund
+![WhatsApp Image 2025-09-23 at 9 15 39 AM](https://github.com/user-attachments/assets/fcfadb52-bf56-48b8-92cb-71bf782ce478)
 The objective of this project is to develop a customizable donation platform that enables micropayments while eliminating transaction fees. This will empower individuals to contribute according to their capacity
 
 ### WHAT IS THE PROBLEM?
