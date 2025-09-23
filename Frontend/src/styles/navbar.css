@@ -1,0 +1,15 @@
+.navbar{
+    padding:1rem;
+    background: #333;
+}
+.navbar-ul{
+    display:flex;
+    list-style:none;
+    gap:1rem;
+    margin: 0;
+}
+
+.navbar-ul-li{
+color:white;
+text-decoration:none;
+}
