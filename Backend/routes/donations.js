@@ -44,5 +44,29 @@ router.get("/total", async (req, res) => {
     res.status(500).json({ success: false, message: "Error fetching total donations" });
   }
 });
+router.get("/summary", async (req, res) => {
+  try {
+    const [rows] = await db.query(`
+      SELECT w.wallet_address, COALESCE(SUM(t.amount), 0) AS total
+      FROM wallets w
+      LEFT JOIN transactions t ON t.wallet_id = w.id
+      GROUP BY w.id
+    `);
+const totalGlobal = rows.reduce((acc, curr) => acc + Number(curr.total), 0);
+let topWallet = null;
+    if (rows.length > 0) {
+      topWallet = rows.reduce((max, curr) => curr.total > max.total ? curr : max, rows[0]);
+    }
+
+    res.json({
+        summary: rows,
+        totalGlobal,
+        topWallet
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ success: false, message: "Error fetching donation summary" });
+  }
+});
 
 export default router;
