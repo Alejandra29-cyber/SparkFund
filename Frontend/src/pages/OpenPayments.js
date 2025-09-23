@@ -42,7 +42,31 @@ function OpenPayments() {
         alert("Error procesando el pago");
     }
 }
+const handleContinuePayment = async () => { 
+    if (!quote || !outgoingPaymentGrant) {
+        alert("No hay datos de pago para continuar. Por favor inicia el pago primero.");
+        return;
+    }
+    try {
+    const res = await fetch("http://localhost:5000/api/openPayments/continue-payment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ quoteId:quote.id, outgoingPaymentGrant,senderWallet}),
+    });
 
+    const data = await res.json();
+    
+    if (res.ok) {
+        alert("Pago finalizado: " + JSON.stringify(data.outgoingPayment));
+    }else {
+        alert("Error al continuar con el pago: " + data.error);
+    }
+
+    } catch (err) {
+        console.error(err);
+        alert("Error continuando el pago");
+    }
+};
     return (
         <div>
         <h1>Aqui puede realizar su donacion</h1>
