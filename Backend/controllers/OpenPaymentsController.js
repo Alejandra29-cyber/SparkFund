@@ -3,6 +3,7 @@ import db from '../config/db.js';
 import { createAuthenticatedClient, isFinalizedGrant } from "@interledger/open-payments";
 import fs from "fs";
 
+//Primero iniciamos el pago y todo lo necesario
 export const handlePayment = async (req, res) => {
   try {
     const { senderWallet, amount, currency } = req.body;
@@ -11,9 +12,9 @@ export const handlePayment = async (req, res) => {
 //0.-  Crear cliente autenticado
     const privateKey = fs.readFileSync("private.key", "UTF8");
     const client = await createAuthenticatedClient({
-      walletAddressUrl: "https://ilp.interledger-test.dev/sparkfund_client",
-      privateKey: privateKey,
-      keyId: "7d0faecc-71c1-4dbe-acfe-a75b0f426823",
+        walletAddressUrl: "https://ilp.interledger-test.dev/sparkfund_client",
+        privateKey: privateKey,
+        keyId: "7d0faecc-71c1-4dbe-acfe-a75b0f426823",
     });
 
     
@@ -132,6 +133,59 @@ res.json({
 
 
  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: error.message });
+  }
+};
+
+//Aqui continuamos con el proceso despues de haber redirigido al usuario
+export const continuePayment = async (req, res) => {
+    try {
+        const { outgoingPaymentGrant, senderWallet,quoteId} = req.body;
+        const privateKey = fs.readFileSync("private.key", "UTF8");
+        const client = await createAuthenticatedClient({
+            walletAddressUrl: "https://ilp.interledger-test.dev/sparkfund_client",
+            privateKey: privateKey,
+            keyId: "7d0faecc-71c1-4dbe-acfe-a75b0f426823",
+        });
+
+        const sendingWalletAddress = await client.walletAddress.get({
+            url: senderWallet
+        });
+
+
+
+        console.log("URI:", req.body.continueUri);
+        console.log("Access Token:", req.body.accessToken);
+
+//Finalizar la concesion de pago saliente
+        const finalizenOutgoingPaymentGrant = await client.grant.continue({
+            url:outgoingPaymentGrant.continue.uri,
+            accessToken:outgoingPaymentGrant.continue.access_token.value,
+        }
+
+    );
+
+    if(!isFinalizedGrant(finalizenOutgoingPaymentGrant)){
+        throw new Error("Se espera finalice la concesion");
+    }
+//Continuar la cotizacion del pago saliente 
+    const outgoingPayment = await client.outgoingPayment.create(
+        {
+            url: sendingWalletAddress.resourceServer,
+            accessToken: finalizenOutgoingPaymentGrant.access_token.value,
+        },
+        {
+            walletAddress: sendingWalletAddress.id,
+            quoteId: quoteId,
+        }
+    );
+    res.json({ 
+        message: "Pago realizado con éxito", outgoingPayment
+    });
+    
+
+} catch (error) {
     console.error(error);
     res.status(500).json({ error: error.message });
   }
