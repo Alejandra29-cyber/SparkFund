@@ -138,25 +138,27 @@ Our proposed solution is to implement the *Open Payments API* to create a websit
 
 ## ESSENTIAL FEATURES
 
-## STACK
+## 📂 Project Stack
+
 SparkFun/
-├── backend/            #Servidor Backend
-│   ├── config/      
-│   ├── controllers/
-│   ├── routes/
-│   ├── .env
-│   ├── private.key
-│   └── server.js
-├── frontend/           #Servidor FrontEnd
-│   ├──
-│   └── src/
-│       ├── components/
-│       ├── pages/
-│       ├── services/
-│       ├── styles/
-│       ├── utils/
-│       ├── App.js
-│       └── index.js
-├── .env
-├── package.json
-└── README.md
+├── backend/ ⚙️ # Servidor Backend
+│ ├── config/ 🛠️ # Configuración (DB, variables, etc.)
+│ ├── controllers/ 📌 # Controladores de la lógica de negocio
+│ ├── routes/ 🌐 # Definición de endpoints
+│ ├── .env 🔑 # Variables de entorno del backend
+│ ├── private.key 🔐 # Clave privada (JWT u otros usos)
+│ └── server.js 🚀 # Punto de entrada del servidor
+│
+├── frontend/ 💻 # Servidor Frontend (React)
+│ └── src/
+│ ├── components/ 🧩 # Componentes reutilizables
+│ ├── pages/ 📄 # Vistas principales
+│ ├── services/ 🔗 # Llamadas a la API
+│ ├── styles/ 🎨 # Estilos globales
+│ ├── utils/ 🧰 # Funciones auxiliares
+│ ├── App.js ⚛️ # Componente raíz
+│ └── index.js 🎯 # Entrada de React
+│
+├── .env 🌍 # Variables de entorno globales
+├── package.json 📦 # Dependencias y scripts del proyecto
+└── README.md 📝 # Documentación del proyecto
