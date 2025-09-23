@@ -134,4 +134,7 @@ Our proposed solution is to implement the *Open Payments API* to create a websit
 ### - *Maintainability:* Modular code and separation of concerns  
 ### - *Ecosystem:* Extensive documentation and community support
 
+
+
 ## ESSENTIAL FEATURES
+
