@@ -138,6 +138,25 @@ Our proposed solution is to implement the *Open Payments API* to create a websit
 
 ## ESSENTIAL FEATURES
 
+sh
+# install node from `./.nvmrc`
+nvm install
+
+# install pnpm
+corepack enable
+
+# if moving from yarn run
+pnpm clean
+
+# install dependencies
+pnpm ill react react-dom
+
+# install express cors dotenv mysql2 @interledger/open-payments
+
+# install axios
+
+
+
 ## 📂 Project Stack
 
 ```t
