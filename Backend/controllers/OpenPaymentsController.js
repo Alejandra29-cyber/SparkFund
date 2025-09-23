@@ -155,8 +155,7 @@ export const continuePayment = async (req, res) => {
 
 
 
-        console.log("URI:", req.body.continueUri);
-        console.log("Access Token:", req.body.accessToken);
+        
 
 //Paso 8. Finalizar la concesion de pago saliente
         const finalizenOutgoingPaymentGrant = await client.grant.continue({
@@ -180,8 +179,35 @@ export const continuePayment = async (req, res) => {
             quoteId: quoteId,
         }
     );
-    res.json({ 
-        message: "Pago realizado con éxito", outgoingPayment
+        const amount = outgoingPayment.receiveAmount?.value || 0; 
+        const assetCode = outgoingPayment.receiveAmount?.assetCode || "USD";
+ // Buscar o crear la wallet en DB
+    const [rows] = await db.query(
+      "SELECT id FROM wallets WHERE wallet_address = ?",
+      [senderWallet]
+    );
+
+    let walletId;
+    if (rows.length === 0) {
+      const [result] = await db.query(
+        "INSERT INTO wallets (wallet_address) VALUES (?)",
+        [senderWallet]
+      );
+      walletId = result.insertId;
+    } else {
+      walletId = rows[0].id;
+    }
+
+    // Guardar transacción
+    await db.query(
+      "INSERT INTO transactions (wallet_id, amount) VALUES (?, ?)",
+      [walletId, amount]
+    );
+
+    res.json({
+      success: true,
+      message: "Pago realizado y guardado con éxito",
+      outgoingPayment,
     });
     
 
