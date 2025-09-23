@@ -158,7 +158,7 @@ export const continuePayment = async (req, res) => {
         console.log("URI:", req.body.continueUri);
         console.log("Access Token:", req.body.accessToken);
 
-//Finalizar la concesion de pago saliente
+//Paso 8. Finalizar la concesion de pago saliente
         const finalizenOutgoingPaymentGrant = await client.grant.continue({
             url:outgoingPaymentGrant.continue.uri,
             accessToken:outgoingPaymentGrant.continue.access_token.value,
@@ -169,7 +169,7 @@ export const continuePayment = async (req, res) => {
     if(!isFinalizedGrant(finalizenOutgoingPaymentGrant)){
         throw new Error("Se espera finalice la concesion");
     }
-//Continuar la cotizacion del pago saliente 
+//Paso 9. Continuar la cotizacion del pago saliente 
     const outgoingPayment = await client.outgoingPayment.create(
         {
             url: sendingWalletAddress.resourceServer,

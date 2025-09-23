@@ -1,8 +1,9 @@
 import express from 'express';
-import { handlePayment } from '../controllers/OpenPaymentsController.js';
+import { handlePayment, continuePayment} from '../controllers/OpenPaymentsController.js';
 
 const router = express.Router();
 
 router.post('/pay', handlePayment);
+router.post('/continue-payment', continuePayment )
 
 export default router;

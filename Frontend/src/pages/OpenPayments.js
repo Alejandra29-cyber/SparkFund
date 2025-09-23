@@ -5,7 +5,7 @@ import { makeOpenPayment } from "../services/api";
 function OpenPayments() {
   const location = useLocation();
   const { walletAddressSender} = location.state || {}; 
-  const receiverWallet = "https://interledger-test.dev/receivingsparkfund" // receptor estático
+  const receiverWallet = "https://ilp.interledger-test.dev/receivingsparkfund" // receptor estático
   
   const [amount, setAmount] = useState(""); 
   const [currency, setCurrency] = useState("USD");
@@ -30,7 +30,7 @@ function OpenPayments() {
         setSenderWAllet(result.senderWalletUrl);
         
         console.log("El outgoing es:",result.outgoingPaymentGrant);
-        console.log("El quote es",result.quote);
+        console.log("El quote es",result.quote.id);
         
         if (result.redirectUrl) {
             window.open(result.redirectUrl, "_blank"); 
@@ -65,7 +65,7 @@ const handleContinuePayment = async () => {
     } catch (err) {
         console.error(err);
         alert("Error continuando el pago");
-    }
+    }
 };
     return (
         <div>
@@ -93,7 +93,7 @@ const handleContinuePayment = async () => {
             </select>
         </label>
             <button onClick={handlePayment}>Realizar Pago</button>
-            <button /*onClick={handleContinuePayment} */ >
+            <button onClick={handleContinuePayment} >
             Ya acepté el pago, continuar
         </button>
     </div>
