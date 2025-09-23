@@ -140,6 +140,7 @@ Our proposed solution is to implement the *Open Payments API* to create a websit
 
 ## 📂 Project Stack
 
+```t
 SparkFun/
 ├── backend/ ⚙️ # Servidor Backend
 │ ├── config/ 🛠️ # Configuración (DB, variables, etc.)
