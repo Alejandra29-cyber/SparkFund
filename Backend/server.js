@@ -2,15 +2,17 @@
 import express from "express";
 //import cors to enable comunication Backend-Frontend
 import cors from "cors";
-
+import donationsRoutes from "./routes/donations.js";
 import payments from './routes/payments.js';
-
+import db from './config/db.js';
 import dotenv from "dotenv";
 dotenv.config();
-import db from './config/db.js';
 
-//server
 const app = express();
+
+app.use("/api/donations", donationsRoutes);
+//server
+
 
 
 app.use(cors());
