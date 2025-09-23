@@ -1,6 +1,7 @@
 import React,{useState} from "react";
 import {  useLocation } from 'react-router-dom';
 import { makeOpenPayment } from "../services/api";
+import "../styles/openPayments.css";
 
 function OpenPayments() {
   const location = useLocation();
@@ -57,7 +58,7 @@ const handleContinuePayment = async () => {
     const data = await res.json();
     
     if (res.ok) {
-        alert("Pago finalizado: " + JSON.stringify(data.outgoingPayment));
+        alert("Pago finalizado correctamente ");
     }else {
         alert("Error al continuar con el pago: " + data.error);
     }
@@ -68,23 +69,26 @@ const handleContinuePayment = async () => {
     }
 };
     return (
-        <div>
-        <h1>Aqui puede realizar su donacion</h1>
-        <p>Wallet que esta usando es: {walletAddressSender}</p>
-        <p>La billetera a la que desea donar es : {receiverWallet} </p>
+        <div className="background1">
+        <div className="transparent-container3">
+        <h1>Here you can donate</h1>
+        <p>You are using this wallet: {walletAddressSender}</p>
+        <p>You will send to this wallet: {receiverWallet}</p>
+
+        
         <label>
-            Monto a enviar:
+            Amount:
             <input 
                 type="number" 
                 value={amount} 
                 onChange={(e) => setAmount(e.target.value)} 
-                placeholder="Ingresa el monto"
+                placeholder="Impress the amount"
             />
         </label>
 
 
-        <label>
-            Moneda:
+        <label className="custom-label">
+            Currency:
             <select value={currency} onChange={(e) => setCurrency(e.target.value)}>
             <option value="USD">USD</option>
             <option value="EUR">EUR</option>
@@ -92,10 +96,12 @@ const handleContinuePayment = async () => {
             
             </select>
         </label>
-            <button onClick={handlePayment}>Realizar Pago</button>
-            <button onClick={handleContinuePayment} >
-            Ya acepté el pago, continuar
+            <button class="custom-button" onClick={handlePayment}>Donate</button>
+            <button class="custom-button" onClick={handleContinuePayment} >
+            I donate already, continue
         </button>
+       
+    </div>
     </div>
   );
 }

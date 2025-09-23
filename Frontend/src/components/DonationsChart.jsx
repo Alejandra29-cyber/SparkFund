@@ -42,7 +42,7 @@ function DonationsChartAdvanced() {
 
   return (
     <div style={{ width: "100%", maxWidth: 800, margin: "0 auto" }}>
-      <h2>Total global de donaciones: ${totalGlobal.toFixed(2)}</h2>
+      <h2>Total Global Donations: ${totalGlobal.toFixed(2)} Dlls</h2>
       {topWallet && topWallet.total !== undefined && (
         <h3>
           Wallet que más ha donado: {topWallet.wallet_address} (${topWallet.total.toFixed(2)})

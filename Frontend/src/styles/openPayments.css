@@ -1,0 +1,115 @@
+.OpenPaymentsPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('https://images.unsplash.com/photo-1493794179168-82ca7cb00437?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px 20px; /* Padding top para navbar fija */
+}
+
+.background1{
+    background-color: white;
+}
+
+.transparent-container3 {
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 580px;
+    border-radius: 10px;
+    display: flex;               /* activa flexbox */
+    flex-direction: column;      /* coloca los hijos en columna (vertical) */
+    align-items: center;         /* centra horizontalmente */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    justify-content: center;
+}
+
+.simple1-form {
+  display: flex;
+  flex-direction: column; /* input y botón en línea */
+  gap: 10px;
+  background: #ffffff;
+  padding: 20px 25px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.simple1-form input {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  flex: 1; /* hace que el input ocupe el espacio disponible */
+  outline: none;
+}
+
+.simple1-form input:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+}
+
+.simple1-form button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #4a90e2;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.simple-form1 button:hover {
+  background-color: #357ab8;
+}
+
+.custom-label {
+  display: flex;           /* para alinear texto y select en columna */
+  flex-direction: column;  /* texto arriba, select abajo */
+  font-weight: 500;
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.custom-label select {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-top: 5px;         /* separa del texto */
+  background-color: #fff;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.custom-label select:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+  background-color: #fafafa;
+}
+
+.custom-button {
+  padding: 16px 25px;  
+    margin-bottom: 4px;        /* tamaño cómodo */
+  background-color: #4a90e2;   /* color principal */
+  color: white;                /* texto blanco */
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;                /* sin borde por defecto */
+  border-radius: 8px;          /* esquinas redondeadas */
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* sombra suave */
+}
+
+.custom-button:hover {
+  background-color: #357ab8;   /* color al pasar el cursor */
+  transform: translateY(-2px); /* efecto de levantar */
+}
+
+.custom-button:active {
+  transform: translateY(0);    /* vuelve a la posición original al hacer click */
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
