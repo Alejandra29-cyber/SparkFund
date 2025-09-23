@@ -29,7 +29,7 @@ export default function Donation() {
             <div>
                 <form className="">
                     <p>What is your wallet address?</p>
-                    <input type="text" id="walletAddressSender" value={walletAddressSender}
+                    <input type="text" className="walletAddressSender" value={walletAddressSender}
                     onChange={(e) => setWalletAddressSender(e.target.value)}
                     placeholder="URL">
                     </input>

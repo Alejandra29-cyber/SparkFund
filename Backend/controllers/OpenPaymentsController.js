@@ -180,6 +180,7 @@ export const continuePayment = async (req, res) => {
         }
     );
         const amount = outgoingPayment.receiveAmount?.value || 0; 
+        const normalizedAmount = Number(amount) / 100;
         const assetCode = outgoingPayment.receiveAmount?.assetCode || "USD";
  // Buscar o crear la wallet en DB
     const [rows] = await db.query(
@@ -201,7 +202,7 @@ export const continuePayment = async (req, res) => {
     // Guardar transacción
     await db.query(
       "INSERT INTO transactions (wallet_id, amount) VALUES (?, ?)",
-      [walletId, amount]
+      [walletId, normalizedAmount]
     );
 
     res.json({
